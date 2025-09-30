@@ -51,7 +51,7 @@
       </div>
     </header>
 
-    <!-- HERO (Optional mini banner across all pages) -->
+    <!-- HERO -->
     <section class="hero-banner">
       <div class="container hero-content">
         <h1 class="hero-title">
@@ -60,9 +60,31 @@
         <p class="hero-subtitle">
           Unique eco-friendly stays, handpicked across India’s wild landscapes.
         </p>
-        <a href="{{ url_for('explore') }}" class="btn primary"
-          >Start Exploring</a
-        >
+
+        <!-- Start Exploring CTA -->
+        <a href="{{ url_for('explore') }}" class="btn explore-btn">
+          🌿 Start Exploring
+        </a>
+
+        <!-- Responsive Search & Booking -->
+        <div class="search-box">
+          <form>
+            <input
+              type="text"
+              placeholder="Where to?"
+              aria-label="Destination"
+            />
+            <input type="date" aria-label="Check-in" />
+            <input type="date" aria-label="Check-out" />
+            <select aria-label="Guests">
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4+">4+ Guests</option>
+            </select>
+            <button type="submit" class="btn search-btn">Search</button>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -84,17 +106,17 @@
           <div class="social-links">
             <a href="#"
               ><img
-                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                src="{{ url_for('static', filename='images/icons/instagram.svg') }}"
                 alt="Instagram"
             /></a>
             <a href="#"
               ><img
-                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                src="{{ url_for('static', filename='images/icons/facebook.svg') }}"
                 alt="Facebook"
             /></a>
             <a href="#"
               ><img
-                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                src="{{ url_for('static', filename='images/icons/twitter.svg') }}"
                 alt="Twitter"
             /></a>
           </div>
