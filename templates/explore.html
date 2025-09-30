@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<section class="container section">
+  <div class="section-header">
+    <h2>Explore nature stays</h2>
+    <div class="filters">
+      <button class="chip active">All</button>
+      <button class="chip">Forest</button>
+      <button class="chip">Mountains</button>
+      <button class="chip">Desert</button>
+      <button class="chip">Coast</button>
+    </div>
+  </div>
+  <div class="card-grid">
+    {% for d in destinations %}
+    <a class="card" href="{{ url_for('destination', slug=d.slug) }}">
+      <div class="card-img">
+        <img src="{{ d.image }}" alt="{{ d.name }}" />
+        <span class="badge">★ {{ d.rating }}</span>
+      </div>
+      <div class="card-body">
+        <h3>{{ d.name }}</h3>
+        <p>{{ d.location }}</p>
+        <div class="meta"><span class="dot"></span>{{ d.short }}</div>
+        <div class="price">₹ {{ d.pricePerNight }} <span>/ night</span></div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

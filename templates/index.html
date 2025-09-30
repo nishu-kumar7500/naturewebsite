@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block content %}
+<section class="hero">
+  <div class="hero-bg">
+    <img
+      src="{{ url_for('static', filename='images/hero.jpg') }}"
+      alt="Nature hero"
+    />
+    <div class="overlay"></div>
+    <div class="grain"></div>
+  </div>
+  <div class="container hero-inner">
+    <h1>Find your quiet among trees, lakes, dunes, and cliffs.</h1>
+    <p>
+      Handpicked eco stays with soul. Designed for sunrise coffee, starlit
+      skies, and slow walks.
+    </p>
+    <div class="search">
+      <input type="text" placeholder="Search locations (e.g., Himachal, Goa)" />
+      <input type="date" />
+      <select>
+        <option>2 guests</option>
+        <option>4 guests</option>
+        <option>6 guests</option>
+      </select>
+      <button class="btn solid">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="section-header">
+    <h2>Featured stays</h2>
+    <a class="link" href="{{ url_for('explore') }}">Explore all</a>
+  </div>
+  <div class="card-grid">
+    {% for d in featured %}
+    <a class="card" href="{{ url_for('destination', slug=d.slug) }}">
+      <div class="card-img">
+        <img src="{{ d.image }}" alt="{{ d.name }}" />
+        <span class="badge">★ {{ d.rating }}</span>
+      </div>
+      <div class="card-body">
+        <h3>{{ d.name }}</h3>
+        <p>{{ d.location }}</p>
+        <div class="price">₹ {{ d.pricePerNight }} <span>/ night</span></div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

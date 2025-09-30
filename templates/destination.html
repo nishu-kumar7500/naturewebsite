@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block content %}
+<section class="container section">
+  <div class="detail-hero">
+    <img src="{{ d.image }}" alt="{{ d.name }}" />
+    <div class="overlay soft"></div>
+    <div class="badge rating">★ {{ d.rating }}</div>
+  </div>
+  <div class="detail-grid">
+    <div>
+      <h1>{{ d.name }}</h1>
+      <p class="location">{{ d.location }}</p>
+      <p class="lead">{{ d.description }}</p>
+      <div class="amenities">
+        {% for a in d.amenities %}
+        <span class="chip">{{ a }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <aside class="booking">
+      <div class="price-lg">₹ {{ d.pricePerNight }} <span>/ night</span></div>
+      <div class="booking-controls">
+        <input type="date" />
+        <select>
+          <option>2 guests</option>
+          <option>4 guests</option>
+          <option>6 guests</option>
+        </select>
+        <button class="btn solid w-100">Request to book</button>
+      </div>
+      <div class="trust">
+        <img
+          src="{{ url_for('static', filename='images/leaf.svg') }}"
+          alt="Eco"
+        />
+        <span>Eco‑verified stay</span>
+      </div>
+    </aside>
+  </div>
+  <div class="gallery">
+    {% for g in d.gallery %}
+    <img src="{{ g }}" alt="Gallery image" />
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

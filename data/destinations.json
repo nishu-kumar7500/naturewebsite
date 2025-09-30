@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Forest Retreat",
+    "slug": "forest-retreat",
+    "location": "Himachal, India",
+    "rating": 4.9,
+    "pricePerNight": 4800,
+    "image": "/static/images/destinations/forest-retreat.jpg",
+    "short": "A serene cabin tucked inside cedar forests.",
+    "featured": true,
+    "amenities": ["Eco lodging", "Guided hikes", "Local cuisine"],
+    "gallery": [
+      "/static/images/destinations/forest-retreat.jpg",
+      "/static/images/destinations/mountain-lake.jpg"
+    ],
+    "description": "Wake to birdsong and mist weaving through ancient trees. Sustainable cabins crafted from local materials, with trails that lead to hidden streams and viewpoints."
+  },
+  {
+    "name": "Mountain Lake",
+    "slug": "mountain-lake",
+    "location": "Uttarakhand, India",
+    "rating": 4.8,
+    "pricePerNight": 5200,
+    "image": "/static/images/destinations/mountain-lake.jpg",
+    "short": "Crystal waters at the foot of snow peaks.",
+    "featured": true,
+    "amenities": ["Kayaking", "Stargazing deck", "Organic breakfasts"],
+    "gallery": [
+      "/static/images/destinations/mountain-lake.jpg",
+      "/static/images/destinations/coastal-cliffs.jpg"
+    ],
+    "description": "Glassy alpine waters reflecting indigo skies at dusk. Spend your evenings stargazing on a timber deck, mornings paddling into calm sunrise."
+  },
+  {
+    "name": "Desert Dunes",
+    "slug": "desert-dunes",
+    "location": "Rajasthan, India",
+    "rating": 4.7,
+    "pricePerNight": 4000,
+    "image": "/static/images/destinations/desert-dunes.jpg",
+    "short": "Amber dunes and velvet night skies.",
+    "featured": false,
+    "amenities": ["Camel trails", "Open‑air cinema", "Solar power"],
+    "gallery": [
+      "/static/images/destinations/desert-dunes.jpg",
+      "/static/images/destinations/forest-retreat.jpg"
+    ],
+    "description": "Feel the desert breathe. Wind‑etched ridges glow gold at sunset; nights reveal constellations in pristine clarity."
+  },
+  {
+    "name": "Coastal Cliffs",
+    "slug": "coastal-cliffs",
+    "location": "Goa, India",
+    "rating": 4.6,
+    "pricePerNight": 4500,
+    "image": "/static/images/destinations/coastal-cliffs.jpg",
+    "short": "Turquoise coves and sun‑kissed trails.",
+    "featured": false,
+    "amenities": ["Sea caves", "Yoga pavilion", "Farm‑to‑table"],
+    "gallery": [
+      "/static/images/destinations/coastal-cliffs.jpg",
+      "/static/images/destinations/mountain-lake.jpg"
+    ],
+    "description": "Cliffside paths wind past secret beaches and aromatic groves. Mornings begin with salt air and gentle surf."
+  }
+]

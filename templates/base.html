@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title if title else 'Verdant | Nature Stays' }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/leaf.svg') }}"
+    />
+  </head>
+  <body class="theme">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="{{ url_for('index') }}">
+          <img
+            src="{{ url_for('static', filename='images/logo.svg') }}"
+            alt="Verdant"
+          />
+          <span>Verdant</span>
+        </a>
+        <nav class="nav">
+          <a href="{{ url_for('explore') }}">Explore</a>
+          <a href="#">Stories</a>
+          <a href="#">Guides</a>
+        </nav>
+        <div class="actions">
+          <button class="btn ghost">List your stay</button>
+          <button class="btn solid">Sign in</button>
+        </div>
+      </div>
+    </header>
+
+    {% if content %} {{ content|safe }} {% else %} {% block content %}{%
+    endblock %} {% endif %}
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Verdant</h4>
+          <p>
+            Curated nature stays across India. Eco‑friendly, locally rooted.
+          </p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="{{ url_for('explore') }}">Destinations</a></li>
+            <li><a href="#">Experiences</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© {{ 2025 }} Verdant</span>
+        <div class="legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
