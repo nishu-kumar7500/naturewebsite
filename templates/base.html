@@ -4,11 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title if title else 'Nature | Nature Stays' }}</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Styles -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -18,21 +22,28 @@
       href="{{ url_for('static', filename='images/leaf.jpg') }}"
     />
   </head>
+
   <body class="theme">
+    <!-- HEADER -->
     <header class="site-header">
       <div class="container header-inner">
+        <!-- Brand -->
         <a class="brand" href="{{ url_for('index') }}">
           <img
             src="{{ url_for('static', filename='images/logo.jpg') }}"
             alt="Nature"
           />
-          <span>Nature</span>
+          <span class="brand-name">Nature</span>
         </a>
+
+        <!-- Navigation -->
         <nav class="nav">
-          <a href="{{ url_for('explore') }}">Explore</a>
-          <a href="#">Stories</a>
-          <a href="#">Guides</a>
+          <a href="{{ url_for('explore') }}" class="nav-link">Explore</a>
+          <a href="#" class="nav-link">Stories</a>
+          <a href="#" class="nav-link">Guides</a>
         </nav>
+
+        <!-- Actions -->
         <div class="actions">
           <button class="btn ghost">List your stay</button>
           <button class="btn solid">Sign in</button>
@@ -40,17 +51,55 @@
       </div>
     </header>
 
-    {% if content %} {{ content|safe }} {% else %} {% block content %}{%
-    endblock %} {% endif %}
+    <!-- HERO (Optional mini banner across all pages) -->
+    <section class="hero-banner">
+      <div class="container hero-content">
+        <h1 class="hero-title">
+          Escape to Nature <span>— Find Your Perfect Stay</span>
+        </h1>
+        <p class="hero-subtitle">
+          Unique eco-friendly stays, handpicked across India’s wild landscapes.
+        </p>
+        <a href="{{ url_for('explore') }}" class="btn primary"
+          >Start Exploring</a
+        >
+      </div>
+    </section>
 
+    <!-- MAIN CONTENT -->
+    <main>
+      {% if content %} {{ content|safe }} {% else %} {% block content %}{%
+      endblock %} {% endif %}
+    </main>
+
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-grid">
-        <div>
+        <div class="footer-brand">
           <h4>Nature</h4>
           <p>
-            Curated nature stays across India. Eco‑friendly, locally rooted.
+            Curated nature stays across India. Eco-friendly, locally rooted, and
+            unforgettable.
           </p>
+          <div class="social-links">
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img
+                src="{{ url_for('static', filename='images/leaf.svg') }}"
+                alt="Twitter"
+            /></a>
+          </div>
         </div>
+
         <div>
           <h4>Explore</h4>
           <ul>
@@ -59,6 +108,7 @@
             <li><a href="#">Community</a></li>
           </ul>
         </div>
+
         <div>
           <h4>Company</h4>
           <ul>
@@ -67,9 +117,19 @@
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
+
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Travel Guides</a></li>
+            <li><a href="#">Sustainability</a></li>
+          </ul>
+        </div>
       </div>
+
       <div class="container footer-bottom">
-        <span>© {{ 2025 }} Nature</span>
+        <span>© {{ 2025 }} Nature. All rights reserved.</span>
         <div class="legal">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
@@ -77,6 +137,7 @@
       </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
