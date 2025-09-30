@@ -10,6 +10,7 @@
       <button class="chip">Coast</button>
     </div>
   </div>
+
   <div class="card-grid">
     {% for d in destinations %}
     <a class="card" href="{{ url_for('destination', slug=d.slug) }}">

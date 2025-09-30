@@ -12,6 +12,15 @@
       rel="stylesheet"
     />
 
+    <!-- Font Awesome (icons) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      integrity="sha512-papK1e6sQy2Kp2z2Y0E1l9u9p5rDkFqS6kK1a9zG0fE5wq0z6m8eK0y3j1v4xvQ2E3u8Z1f8d9+6b7c9f8g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- Styles -->
     <link
       rel="stylesheet"
@@ -36,22 +45,40 @@
           <span class="brand-name">Nature</span>
         </a>
 
-        <!-- Navigation -->
-        <nav class="nav">
+        <!-- Desktop nav -->
+        <nav class="nav nav-desktop">
           <a href="{{ url_for('explore') }}" class="nav-link">Explore</a>
           <a href="#" class="nav-link">Stories</a>
           <a href="#" class="nav-link">Guides</a>
         </nav>
 
         <!-- Actions -->
-        <div class="actions">
+        <div class="actions actions-desktop">
           <button class="btn ghost">List your stay</button>
           <button class="btn solid">Sign in</button>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="navToggle" class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Panel (collapsible) -->
+      <div id="mobileNav" class="mobile-nav">
+        <nav class="nav-mobile">
+          <a href="{{ url_for('explore') }}">Explore</a>
+          <a href="#">Stories</a>
+          <a href="#">Guides</a>
+        </nav>
+        <div class="mobile-actions">
+          <button class="btn ghost w-100">List your stay</button>
+          <button class="btn solid w-100">Sign in</button>
         </div>
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO (shared across pages; index.html uses its own hero section but this gives a small persistent banner) -->
     <section class="hero-banner">
       <div class="container hero-content">
         <h1 class="hero-title">
@@ -61,28 +88,48 @@
           Unique eco-friendly stays, handpicked across India’s wild landscapes.
         </p>
 
-        <!-- Start Exploring CTA -->
-        <a href="{{ url_for('explore') }}" class="btn explore-btn">
-          🌿 Start Exploring
-        </a>
+        <!-- Start Exploring CTA (styled) -->
+        <div class="hero-ctas">
+          <a href="{{ url_for('explore') }}" class="start-exploring"
+            ><i class="fa fa-compass"></i> Start Exploring</a
+          >
 
-        <!-- Responsive Search & Booking -->
+          <!-- social icons under hero -->
+          <div class="social-icons hero-social">
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Responsive Search & Booking for pages that expect it (index uses .search, detail uses .booking-controls) -->
         <div class="search-box">
-          <form>
+          <form
+            class="search-form"
+            action="{{ url_for('explore') }}"
+            method="get"
+          >
             <input
+              name="q"
               type="text"
               placeholder="Where to?"
               aria-label="Destination"
             />
-            <input type="date" aria-label="Check-in" />
-            <input type="date" aria-label="Check-out" />
-            <select aria-label="Guests">
+            <input name="checkin" type="date" aria-label="Check-in" />
+            <input name="checkout" type="date" aria-label="Check-out" />
+            <select name="guests" aria-label="Guests">
               <option value="1">1 Guest</option>
               <option value="2">2 Guests</option>
               <option value="3">3 Guests</option>
-              <option value="4+">4+ Guests</option>
+              <option value="4">4+ Guests</option>
             </select>
-            <button type="submit" class="btn search-btn">Search</button>
+            <button type="submit" class="btn search-btn solid">Search</button>
           </form>
         </div>
       </div>
@@ -103,22 +150,16 @@
             Curated nature stays across India. Eco-friendly, locally rooted, and
             unforgettable.
           </p>
-          <div class="social-links">
-            <a href="#"
-              ><img
-                src="{{ url_for('static', filename='images/icons/instagram.svg') }}"
-                alt="Instagram"
-            /></a>
-            <a href="#"
-              ><img
-                src="{{ url_for('static', filename='images/icons/facebook.svg') }}"
-                alt="Facebook"
-            /></a>
-            <a href="#"
-              ><img
-                src="{{ url_for('static', filename='images/icons/twitter.svg') }}"
-                alt="Twitter"
-            /></a>
+          <div class="social-icons footer-social">
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" target="_blank" rel="noopener"
+              ><i class="fab fa-twitter"></i
+            ></a>
           </div>
         </div>
 
