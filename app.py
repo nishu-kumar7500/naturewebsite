@@ -6,46 +6,30 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 
 def load_destinations():
     data_path = os.path.join(os.path.dirname(__file__), "data", "destinations.json")
-    with open(data_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(data_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Error: The file {data_path} was not found.")
+        return []
 
 DESTINATIONS = load_destinations()
 
 @app.route("/")
 def index():
     featured = [d for d in DESTINATIONS if d.get("featured")]
-    return render_template("index.html", featured=featured)
+    return render_template("index.html", title="Home", featured=featured)
 
 @app.route("/explore")
 def explore():
-    return render_template("explore.html", destinations=DESTINATIONS)
+    return render_template("explore.html", title="Explore", destinations=DESTINATIONS)
 
 @app.route("/destination/<slug>")
 def destination(slug):
     match = next((d for d in DESTINATIONS if d["slug"] == slug), None)
     if not match:
         abort(404)
-    return render_template("destination.html", d=match)
-
-@app.errorhandler(404)
-def not_found(e):
-    return render_template("base.html", title="Not found", content="<div class='container py-5'><h2>Page not found</h2></div>"), 404
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
-
-@app.route("/")
-def index():
-    return render_template("index.html", title="Home")
-
-@app.route("/explore")
-def explore():
-    return render_template("explore.html", title="Explore")
-
-@app.route("/destinations")
-def destinations():
-    return render_template("destinations.html", title="Destinations")
+    return render_template("destination.html", title=match["name"], d=match)
 
 @app.route("/experiences")
 def experiences():
@@ -78,3 +62,10 @@ def travel_guides():
 @app.route("/sustainability")
 def sustainability():
     return render_template("sustainability.html", title="Sustainability")
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("base.html", title="Page Not Found", content="<div class='container py-5'><h2>Page not found</h2></div>"), 404
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
