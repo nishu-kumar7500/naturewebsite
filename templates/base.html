@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title if title else 'Verdant | Nature Stays' }}</title>
+    <title>{{ title if title else 'Nature | Nature Stays' }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap"
@@ -24,9 +24,9 @@
         <a class="brand" href="{{ url_for('index') }}">
           <img
             src="{{ url_for('static', filename='images/logo.jpg') }}"
-            alt="Verdant"
+            alt="Nature"
           />
-          <span>Verdant</span>
+          <span>Nature</span>
         </a>
         <nav class="nav">
           <a href="{{ url_for('explore') }}">Explore</a>
@@ -46,7 +46,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h4>Verdant</h4>
+          <h4>Nature</h4>
           <p>
             Curated nature stays across India. Eco‑friendly, locally rooted.
           </p>
@@ -69,7 +69,7 @@
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© {{ 2025 }} Verdant</span>
+        <span>© {{ 2025 }} Nature</span>
         <div class="legal">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
