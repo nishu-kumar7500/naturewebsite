@@ -58,7 +58,7 @@ They resolve automatically using the IP.
 Example:
 
 ```
-myapp.20.40.60.80.nip.io
+www.kumarx.in
 ```
 
 Replace `20.40.60.80` with your Ingress External IP.
