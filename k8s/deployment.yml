@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: natureapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: natureapp
+  template:
+    metadata:
+      labels:
+        app: natureapp
+    spec:
+      containers:
+        - name: natureapp-container
+          image: ux007893/nature:893
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
