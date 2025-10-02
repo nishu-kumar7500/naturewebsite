@@ -12,3 +12,13 @@ Your existing Service definition should include:
 
 ```yaml
 type: ClusterIP
+yaml```
+
+## ✅ Step 2: Install NGINX Ingress Controller
+Deploy the NGINX Ingress Controller. This will create an Azure Load Balancer with a public IP that serves as the entry point for all external traffic.
+
+Command
+Bash
+
+```bash
+kubectl apply -f [https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/cloud/deploy.yaml](https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/cloud/deploy.yaml)
