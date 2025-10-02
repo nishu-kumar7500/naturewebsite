@@ -167,7 +167,8 @@ kubectl describe certificate natureapp-tls
 Once the certificate is Ready, you can access your app via:
 
 ```
-https://myapp.20.40.60.80.nip.io
+https://www.kumarx.in/
+https://kumarx.in/
 ```
 
 ---
