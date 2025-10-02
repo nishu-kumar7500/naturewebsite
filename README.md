@@ -120,20 +120,32 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   tls:
-  - hosts:
-    - myapp.20.40.60.80.nip.io  # Replace with your domain or DNS name
-    secretName: natureapp-tls
+    - hosts:
+        - kumarx.in
+        - www.kumarx.in
+      secretName: natureapp-tls
   rules:
-  - host: myapp.20.40.60.80.nip.io  # Replace with your domain
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: natureapp-service
-            port:
-              number: 80
+    - host: kumarx.in
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: natureapp-service
+                port:
+                  number: 80
+    - host: www.kumarx.in
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: natureapp-service
+                port:
+                  number: 80
+
 ```
 
 Apply the Ingress:
